@@ -1,0 +1,10 @@
+작업 내용: 홈페이지 메인 파일(index.html) 이동
+작업 일시: 2026-07-07
+
+상세 내역:
+1. 프로젝트 폴더 내에 여러 index.html 파일이 있는 것을 확인했습니다.
+   - C:\Users\PC\Desktop\leesuji\web\html\index.html (기존 빈 파일)
+   - C:\Users\PC\Desktop\leesuji\web\html\html\index.html (실제 홈페이지 파일)
+   - 기타 하위 디렉토리 파일들
+2. 실제 홈페이지 내용이 포함된 html/index.html 파일을 루트 디렉토리(C:\Users\PC\Desktop\leesuji\web\html)로 이동했습니다.
+3. 이동 작업 완료 후 정상적으로 배치되었음을 확인했습니다.
