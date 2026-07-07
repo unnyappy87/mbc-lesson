@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>div태그</title>
+    <!--웹표준 html5, Css3, es6-->
+    <style>
+      .wrap {
+        width: 300px;
+        margin: auto;
+        background-color: aquamarine;
+      }
+      header,
+      section,
+      footer {
+        border: 1px solid;
+        text-align: center;
+      } /* [오류 수정] CSS 선택자의 닫는 중괄호('}')가 누락되었던 것을 추가했습니다. */
+    </style>
+  </head>
+  <!-- [오류 수정] 닫는 </head> 태그가 누락되었던 것을 추가했습니다. -->
+
+  <body>
+    <!--header+section+footer-->
+    <!--,.#-->
+    <div class="wrap">
+      <header>헤더</header>
+      <section>
+        섹션
+        <!-- [오류 수정] 시맨틱 태그는 의미를 '부여할 때' 사용하므로 텍스트 내용을 올바르게 수정했습니다. -->
+        <h2>semantic tag : 콘텐츠에 의미를 부여하여 그룹핑할 때</h2>
+      </section>
+      <footer>풋터</footer>
+    </div>
+    <!-- [오류 수정] 전체를 감싸는 .wrap의 닫는 </div> 태그가 누락되었던 것을 추가했습니다. -->
+  </body>
+</html>

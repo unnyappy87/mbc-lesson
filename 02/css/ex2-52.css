@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import url('./reset.css');
+p{
+    background: rgba(0,100,200,.3);
+    width: 600px;
+    padding: 10px;
+    /* w:620px margin은 박스크기에 계산 안됨 */
+    margin: 20px;
+    margin-top: 50px;
+    margin-bottom: 100px; 
+    /* margin겹침현상: 상하방향일때만 나타남 */
+    /* 인접한 요소의 상하마진은 큰값으로 병합됨 */
+}
+.art2{
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-bottom:0;
+    margin-left:auto;
+    margin-right:auto;
+}
+.art2+p{
+    width: 200px;
+    margin: 20px auto;
+}

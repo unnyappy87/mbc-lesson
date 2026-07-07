@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 기본 구조 - 초등학생용 쉬운 설명</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            line-height: 2;
+            max-width: 720px;
+            margin: 30px auto;
+            padding: 0 20px;
+            color: #333;
+            background: #fffbe6;
+        }
+        h1 {
+            text-align: center;
+            color: #ff6b35;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 2px solid #ffeaa7;
+        }
+        .card h2 {
+            color: #d63031;
+            margin-top: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card p, .card li {
+            font-size: 1.05rem;
+        }
+        code {
+            background: #ffeaa7;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            color: #d63031;
+            font-weight: bold;
+        }
+        pre {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            font-weight: normal;
+        }
+        .tag { color: #ff7675; }
+        .attr { color: #fdcb6e; }
+        .val { color: #74b9ff; }
+        .comment { color: #b2bec3; font-style: italic; }
+        .analogy {
+            background: #e8f5e9;
+            border-left: 5px solid #00b894;
+            padding: 15px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 15px 0;
+        }
+        .analogy strong { color: #00b894; }
+        ul { padding-left: 25px; }
+        li { margin-bottom: 10px; }
+        .emoji { font-size: 1.3rem; }
+        .tip {
+            background: #fff3e0;
+            border: 2px dashed #ff9800;
+            border-radius: 12px;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #e65100;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🌐 HTML 기본 구조</h1>
+    <p class="subtitle">처음 배우는 친구들을 위한 쉬운 설명</p>
+
+    <div class="card">
+        <h2><span class="emoji">🏠</span> HTML은 집과 같아요!</h2>
+        <p>HTML 문서를 <strong>집</strong>에 비유하면 쉽게 이해할 수 있어요.</p>
+        <div class="analogy">
+            <strong>🚪 집 전체 = &lt;html&gt;</strong><br>
+            집 안에는 방이 여러 개 있죠? HTML도 마찬가지예요.<br>
+            문서 전체를 <code>&lt;html&gt;</code>이라는 큰 집으로 감싸요.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><span class="emoji">📋</span> 1. &lt;!DOCTYPE html&gt; — "나는 HTML5 문서야!"</h2>
+        <p>이건 문서 맨 위에 쓰는 <strong>이름표</strong>예요.</p>
+        <p>브라우저(크롬, 사파리 등)에게 "이 파일은 HTML5로 만들었어!"라고 알려주는 거예요.</p>
+        <div class="analogy">
+            <strong>💡 비유:</strong> 학교에 입학할 때 "저는 1학년이에요!"라고 말하는 것과 같아요.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><span class="emoji">🧠</span> 2. &lt;head&gt; — 머리(눈에 안 보이는 정보)</h2>
+        <p><code>&lt;head&gt;</code>는 화면에 <strong>보이지 않는</strong> 정보를 담는 방이에요.</p>
+        <ul>
+            <li><code>&lt;title&gt;</code> — 브라우저 탭에 나오는 <strong>제목</strong></li>
+            <li><code>&lt;meta charset="UTF-8"&gt;</code> — 한글을 제대로 보여주는 <strong>설정</strong></li>
+            <li><code>&lt;meta name="viewport"&gt;</code> — 휴대폰에서도 잘 보이게 하는 <strong>설정</strong></li>
+        </ul>
+        <div class="analogy">
+            <strong>💡 비유:</strong> 집의 <strong>전기 설비, 수도 설비</strong> 같은 거예요.<br>
+            눈에 안 보이지만 없으면 집이 제대로 작동하지 않죠?
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><span class="emoji">🖥️</span> 3. &lt;body&gt; — 몸(눈에 보이는 내용)</h2>
+        <p><code>&lt;body&gt;</code>는 웹 페이지에서 <strong>실제로 보이는</strong> 모든 것을 담는 방이에요.</p>
+        <ul>
+            <li><code>&lt;h1&gt;</code> — 큰 제목 (책 표지 같은 거)</li>
+            <li><code>&lt;p&gt;</code> — 글 단락 (책 속 내용)</li>
+            <li><code>&lt;img&gt;</code> — 사진</li>
+            <li><code>&lt;a&gt;</code> — 링크 (누르면 다른 페이지로 이동)</li>
+        </ul>
+        <div class="analogy">
+            <strong>💡 비유:</strong> 집의 <strong>거실, 침실, 주방</strong> 같은 거예요.<br>
+            사람들이 실제로 보고 사용하는 공간이죠!
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><span class="emoji">📦</span> 전체 모습 한눈에 보기</h2>
+        <pre><code><span class="tag">&lt;!DOCTYPE html&gt;</span>           <span class="comment">&lt;!-- "나는 HTML5야!" --&gt;</span>
+<span class="tag">&lt;html&gt;</span>                      <span class="comment">&lt;!-- 집 전체 --&gt;</span>
+    <span class="tag">&lt;head&gt;</span>                  <span class="comment">&lt;!-- 머리 (눈에 안 보이는 정보) --&gt;</span>
+        <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;title&gt;</span>나의 첫 웹페이지<span class="tag">&lt;/title&gt;</span>
+    <span class="tag">&lt;/head&gt;</span>
+    <span class="tag">&lt;body&gt;</span>                  <span class="comment">&lt;!-- 몸 (눈에 보이는 내용) --&gt;</span>
+        <span class="tag">&lt;h1&gt;</span>안녕하세요!<span class="tag">&lt;/h1&gt;</span>
+        <span class="tag">&lt;p&gt;</span>저는 HTML을 배우고 있어요.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>                     <span class="comment">&lt;!-- 집 끝 --&gt;</span></code></pre>
+    </div>
+
+    <div class="tip">
+        🎯 핵심 정리<br><br>
+        <code>&lt;!DOCTYPE&gt;</code> → 이름표<br>
+        <code>&lt;html&gt;</code> → 집 전체<br>
+        <code>&lt;head&gt;</code> → 머리 (안 보이는 정보)<br>
+        <code>&lt;body&gt;</code> → 몸 (보이는 내용)<br><br>
+        이 4가지만 기억하면 HTML의 뼈대는 끝!
+    </div>
+
+</body>
+</html>

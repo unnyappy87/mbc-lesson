@@ -1,0 +1,21 @@
+@charset "UTF-8";
+@import url(./font.css);
+p{
+    /* border을 기준으로 밖은 margin 안은 padding */
+    margin: 10px 110px;
+    border: 1px solid crimson;
+    padding: 10px;
+}
+.txt1{
+    text-align: left;
+}
+.txt2{
+    text-align: right;
+}
+.txt3{
+    text-align: center;
+}
+.txt4{
+    /* justify 양쪽맞춤 */
+    text-align: justify;
+}

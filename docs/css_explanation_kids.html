@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초등학생을 위한 CSS 마법 학교: Class vs ID</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f0f9ff;
+            color: #333;
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 6px solid #ffd700;
+        }
+        h1 {
+            text-align: center;
+            color: #ff4500;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .class-bg {
+            background-color: #e0f2fe;
+            border-left: 8px solid #0ea5e9;
+        }
+        .id-bg {
+            background-color: #ffedd5;
+            border-left: 8px solid #f97316;
+        }
+        h2 {
+            margin-top: 0;
+            color: #1e293b;
+        }
+        .symbol {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        .class-symbol { color: #0ea5e9; }
+        .id-symbol { color: #f97316; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #f8fafc;
+        }
+        .summary-box {
+            background-color: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px dashed #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ CSS 변신 마법: 클래스와 아이디</h1>
+
+        <div class="section class-bg">
+            <h2><span class="symbol class-symbol">.</span> 1. Class (클래스) - "우리 반 단체복"</h2>
+            <p>클래스는 <strong>여러 친구들</strong>에게 똑같은 스타일을 줄 때 사용해요.</p>
+            <ul>
+                <li><strong>비유:</strong> 우리 반 친구들이 모두 입는 '체육복'과 같아요.</li>
+                <li><strong>특징:</strong> 한 페이지에 몇 번이고 다시 쓸 수 있어요. 한 명이 여러 벌의 옷(클래스)을 입을 수도 있죠!</li>
+                <li><strong>약속:</strong> 이름 앞에 꼭 <strong>점(.)</strong>을 찍어주세요.</li>
+            </ul>
+        </div>
+
+        <div class="section id-bg">
+            <h2><span class="symbol id-symbol">#</span> 2. ID (아이디) - "나만의 이름표"</h2>
+            <p>아이디는 이 세상에 <strong>딱 하나뿐인 부분</strong>을 꾸밀 때 사용해요.</p>
+            <ul>
+                <li><strong>비유:</strong> 내 가방에 붙은 하나뿐인 '이름표'나 내 '지문'과 같아요.</li>
+                <li><strong>특징:</strong> 한 페이지에 <strong>딱 한 번만</strong> 쓸 수 있어요. 중복되면 컴퓨터가 헷갈려해요!</li>
+                <li><strong>약속:</strong> 이름 앞에 꼭 <strong>샵(#)</strong>을 붙여주세요.</li>
+            </ul>
+        </div>
+
+        <h2>📊 한눈에 비교하기</h2>
+        <table>
+            <tr>
+                <th>구분</th>
+                <th>Class (클래스)</th>
+                <th>ID (아이디)</th>
+            </tr>
+            <tr>
+                <td><strong>기호</strong></td>
+                <td>. (점)</td>
+                <td># (샵)</td>
+            </tr>
+            <tr>
+                <td><strong>사용 횟수</strong></td>
+                <td>여러 번 가능</td>
+                <td>딱 한 번만!</td>
+            </tr>
+            <tr>
+                <td><strong>용도</strong></td>
+                <td>단체 스타일</td>
+                <td>특별한 한 곳</td>
+            </tr>
+        </table>
+
+        <div class="summary-box">
+            <h3>💡 기억하기!</h3>
+            <p>여러 명을 한꺼번에 꾸밀 땐? 👉 <strong>.클래스</strong></p>
+            <p>딱 한 명만 특별하게 꾸밀 땐? 👉 <strong>#아이디</strong></p>
+        </div>
+    </div>
+</body>
+</html>

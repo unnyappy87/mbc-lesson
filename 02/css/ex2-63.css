@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.flex-container {
+  display: flex;
+  background-color: #e1e1e1;
+  flex-direction: row;
+  flex-direction: row-reverse;
+
+}
+.flex {
+  display: flex;
+  background-color: aqua;
+  /* 
+  flex-direction은 아이템방향을 설정
+  row가 기본
+  row 가로 column세로
+  */
+  flex-direction: column;
+  flex-direction: column-reverse;
+}

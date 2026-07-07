@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFEIN Banner 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@500&family=Train+One&family=Unna:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .banner {
+            width: 1500px;
+            height: 500px;
+            background-color: #c4a484; /* Fallback color */
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            background-image: url('cafe.png'); /* Using the provided image as background */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Overlay to ensure text readability if needed, similar to the brownish tint */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(164, 124, 67, 0.4);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .text-group {
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-family: 'Train One', cursive;
+            font-size: 120px;
+            line-height: 1;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle-kr {
+            font-family: 'Unna', serif;
+            font-size: 54px;
+            margin: 10px 0;
+            letter-spacing: 1px;
+        }
+
+        .subtitle-en {
+            font-family: 'Unna', serif;
+            font-style: italic;
+            font-size: 40px;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .bottom-bar {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 90px;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid white;
+        }
+
+        .event-text {
+            font-family: 'Georama', sans-serif;
+            font-weight: 500;
+            font-size: 42px;
+            letter-spacing: -1px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="text-group">
+                <p class="title">CAFEIN</p>
+                <p class="subtitle-kr">도시의 향을 담은 깊은 맛</p>
+                <p class="subtitle-en">Deep Flavors, Urban Aroma.</p>
+            </div>
+            
+            <div class="bottom-bar">
+                <p class="event-text">오픈기념 아아 1000원</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

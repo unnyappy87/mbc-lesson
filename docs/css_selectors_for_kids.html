@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초등학생을 위한 CSS 선택자 마법 사전</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            background-color: #fff9f0;
+            color: #333;
+            line-height: 1.8;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 8px solid #ffde59;
+        }
+        h1 {
+            text-align: center;
+            color: #ff5757;
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px #ffebeb;
+        }
+        .selector-card {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        .tag-selector { background-color: #e3f2fd; border-left: 12px solid #2196f3; }
+        .class-selector { background-color: #f1f8e9; border-left: 12px solid #8bc34a; }
+        .id-selector { background-color: #fff3e0; border-left: 12px solid #ff9800; }
+        .group-selector { background-color: #f3e5f5; border-left: 12px solid #9c27b0; }
+        
+        h2 {
+            margin-top: 0;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+        }
+        .symbol {
+            font-size: 1.2em;
+            margin-right: 15px;
+            background: white;
+            padding: 5px 15px;
+            border-radius: 12px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        }
+        .analogy {
+            font-weight: bold;
+            color: #666;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .code-example {
+            background: #2d3436;
+            color: #fab1a0;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin-top: 15px;
+            display: block;
+        }
+        .rule-list {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .rule-list li {
+            margin-bottom: 10px;
+        }
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        .summary-table th, .summary-table td {
+            border: 2px solid #eee;
+            padding: 15px;
+            text-align: center;
+        }
+        .summary-table th { background-color: #ffde59; }
+        .footer-tip {
+            margin-top: 50px;
+            background: #fef9c3;
+            padding: 25px;
+            border-radius: 20px;
+            border: 3px dashed #eab308;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-container">
+        <h1>✨ CSS 선택자 마법 사전</h1>
+        <p style="text-align: center; font-size: 1.2em;">웹사이트의 요소를 콕 찍어서 꾸미는 마법의 주문(선택자)을 배워봐요!</p>
+
+        <!-- 태그 선택자 -->
+        <div class="selector-card tag-selector">
+            <h2><span class="symbol">p, h1, div</span> 태그 선택자</h2>
+            <span class="analogy">💡 비유: "이 세상의 모든 사과 나와라!"</span>
+            <p>특정한 종류의 태그를 가진 모든 친구들을 한꺼번에 꾸미고 싶을 때 사용해요.</p>
+            <ul class="rule-list">
+                <li><strong>사용법:</strong> 그냥 태그 이름을 그대로 써요.</li>
+                <li><strong>특징:</strong> 페이지에 있는 똑같은 태그는 모두 다 변해요.</li>
+            </ul>
+            <code class="code-example">p { color: blue; } /* 모든 글자를 파랗게! */</code>
+        </div>
+
+        <!-- 클래스 선택자 -->
+        <div class="selector-card class-selector">
+            <h2><span class="symbol">.</span> 클래스 선택자</h2>
+            <span class="analogy">💡 비유: "노란색 티셔츠 입은 사람만 모여라!"</span>
+            <p>서로 다른 태그라도 내가 정한 '별명'을 가진 친구들만 골라서 꾸밀 때 써요.</p>
+            <ul class="rule-list">
+                <li><strong>사용법:</strong> 이름 앞에 <strong>점(.)</strong>을 찍어요.</li>
+                <li><strong>특징:</strong> 한 명도 되고, 열 명도 되고, 여러 번 쓸 수 있어요!</li>
+            </ul>
+            <code class="code-example">.yellow-team { background: yellow; }</code>
+        </div>
+
+        <!-- 아이디 선택자 -->
+        <div class="selector-card id-selector">
+            <h2><span class="symbol">#</span> 아이디 선택자</h2>
+            <span class="analogy">💡 비유: "우리 반 1번 홍길동 딱 한 명만!"</span>
+            <p>이 세상에 딱 하나뿐인 아주 특별한 부분을 콕 집어서 꾸밀 때 써요.</p>
+            <ul class="rule-list">
+                <li><strong>사용법:</strong> 이름 앞에 <strong>샵(#)</strong>을 붙여요.</li>
+                <li><strong>특징:</strong> 한 페이지에 <strong>딱 한 번만</strong> 쓸 수 있어요. 가장 힘이 세요!</li>
+            </ul>
+            <code class="code-example">#main-logo { width: 200px; }</code>
+        </div>
+
+        <!-- 그룹 선택자 -->
+        <div class="selector-card group-selector">
+            <h2><span class="symbol">,</span> 그룹 선택자</h2>
+            <span class="analogy">💡 비유: "사과랑 포도랑 딸기 다 같이 빨갛게!"</span>
+            <p>서로 다른 친구들에게 똑같은 스타일을 한 번에 주고 싶을 때 사용해요.</p>
+            <ul class="rule-list">
+                <li><strong>사용법:</strong> 선택자들 사이에 <strong>쉼표(,)</strong>를 찍어요.</li>
+                <li><strong>장점:</strong> 코드를 여러 번 안 써도 되니까 아주 편리해요!</li>
+            </ul>
+            <code class="code-example">h1, h2, .title { color: red; }</code>
+        </div>
+
+        <h2>정리해볼까요?</h2>
+        <table class="summary-table">
+            <tr>
+                <th>마법 종류</th>
+                <th>표시 방법</th>
+                <th>누구를 꾸미나요?</th>
+            </tr>
+            <tr>
+                <td>태그 선택자</td>
+                <td>태그이름</td>
+                <td>그 태그를 쓴 모든 친구들</td>
+            </tr>
+            <tr>
+                <td>클래스 선택자</td>
+                <td>.이름</td>
+                <td>같은 별명을 가진 여러 친구들</td>
+            </tr>
+            <tr>
+                <td>아이디 선택자</td>
+                <td>#이름</td>
+                <td>딱 하나뿐인 주인공 친구</td>
+            </tr>
+            <tr>
+                <td>그룹 선택자</td>
+                <td>A, B</td>
+                <td>A랑 B 모두 다 같이</td>
+            </tr>
+        </table>
+
+        <div class="footer-tip">
+            <h3>🌈 마법사의 마지막 꿀팁!</h3>
+            <p>보통은 <strong>클래스(.)</strong>를 가장 많이 써요. 아이디(#)는 정말 특별한 친구에게만 아껴서 사용하고, 비슷한 스타일이 많으면 쉼표(,)로 묶어서 마법을 부려보세요!</p>
+        </div>
+    </div>
+</body>
+</html>

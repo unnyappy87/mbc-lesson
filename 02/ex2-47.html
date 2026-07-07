@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>gradient의 표현</title>
+    <style>
+      p {
+        padding: 60px;
+      }
+      .g1 {
+        background-image: blue;
+        background-image: linear-gradient(yellow, blue, green);
+      }
+      .g2 {
+        background-image: linear-gradient(to right, yellow, blue, green);
+      }
+      .g3 {
+        background-image: linear-gradient(45deg, yellow, blue, green);
+        background-clip: text;
+        color: transparent;
+      }
+      .g4 {
+        background-image: linear-gradient(45deg, yellow 15%, blue 50%, green 30%);
+      }
+      .g5 {
+        background-image: radial-gradient(yellow, blue, green);
+      }
+      .g6 {
+        background-image: repeatong-linear-gradient(red, pink20%, blue30%);
+      }
+      .g7 {
+        background-image: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+      }
+      .g8 {
+        /* Rectangle 1 */
+        background: radial-gradient(50% 50% at 50% 50%, #ffffff 0%, #1451ad 100%);
+      }
+      .g9 {
+        background-color: #e94e77;
+        opacity: 0.8;
+        background: repeating-linear-gradient(-45deg, #e94e77 0px, #e94e77 5px, transparent 5px, transparent 8px), repeating-linear-gradient(45deg, #e94e77 0px, #e94e77 5px, transparent 5px, transparent 8px), linear-gradient(#d68189, #d68189);
+      }
+      .g10 {
+        background-color: #fdf1cc;
+        opacity: 0.8;
+        background-image: radial-gradient(25% 50%, #c6d6b8 98%, transparent), radial-gradient(25% 50%, #fdf1cc 98%, transparent), repeating-conic-gradient(#c6d6b8 0 25%, #fdf1cc 0 50%);
+        background-position:
+          30px 0,
+          0 0,
+          0 0;
+        background-size:
+          60px 30px,
+          60px 30px,
+          60px 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="g1">It's impossible not only starting good but also keeping it firm!!</p>
+    <p class="g2">It's impossible not only starting good but also keeping it firm!!</p>
+    <p class="g3">It's impossible not only starting good but also keeping it firm!!</p>
+    <p class="g4">It's impossible not only starting good but also keeping it firm!!</p>
+    <p class="g5">It's impossible not only starting good but also keeping it firm!!</p>
+    <p class="g6">It's impossible not only starting good but also keeping it firm!!</p>
+    <p class="g7">It's impossible not only starting good but also keeping it firm!!</p>
+    <p class="g8">It's impossible not only starting good but also keeping it firm!!</p>
+    <p class="g9">It's impossible not only starting good but also keeping it firm!!</p>
+    <p class="g10">It's impossible not only starting good but also keeping it firm!!</p>
+  </body>
+</html>

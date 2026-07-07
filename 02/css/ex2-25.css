@@ -1,0 +1,13 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+p.letter2 {
+    /* 자간 */
+    letter-spacing: 6px;
+}
+p.letter3 {
+    /* 단어사이의 간격 */
+    word-spacing: 6px;
+}

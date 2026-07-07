@@ -1,0 +1,2 @@
+@cafe.png 파일을 그대로 html/css로 구현해
+이경로에 figma2.html파일로 저장해

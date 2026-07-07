@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <style>
+    .cont{
+        display: grid;
+        grid-template-areas: 
+        "box1 box2"
+        "box3 box4";
+    }
+    .item{
+        width:50%;
+        height: 100px;
+    }
+    .item:nth-child(1){
+        grid-area: box1;
+        background:magenta;
+    }
+     .item:nth-child(2){
+        grid-area: box2;
+        background:orange;
+    }
+     .item:nth-child(3){
+        grid-area: box3;
+        background:yellowgreen;
+    }
+     .item:nth-child(4){
+        grid-area: box4;
+        background:gainsboro;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="cont">
+      <div class="item">box1</div>
+      <div class="item">box2</div>
+      <div class="item">box3</div>
+      <div class="item">box4</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 블록과 인라인 - 정확한 중첩 규칙!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFF8E7;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #FF6B6B;
+            font-size: 2.3em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .warning-box {
+            background: #FFEBEE;
+            border: 3px solid #F44336;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .warning-box h3 {
+            color: #C62828;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .block-section {
+            background-color: #E3F2FD;
+            border: 3px solid #2196F3;
+        }
+        .inline-section {
+            background-color: #F3E5F5;
+            border: 3px solid #9C27B0;
+        }
+        .nesting-section {
+            background-color: #E8F5E9;
+            border: 3px solid #4CAF50;
+        }
+        h2 {
+            margin-bottom: 15px;
+            font-size: 1.7em;
+        }
+        .block-section h2 { color: #1976D2; }
+        .inline-section h2 { color: #7B1FA2; }
+        .nesting-section h2 { color: #2E7D32; }
+
+        .analogy-box {
+            background: #FFF3E0;
+            border-left: 5px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+            font-size: 1.1em;
+        }
+        .analogy-box strong {
+            color: #E65100;
+        }
+
+        .tag-box {
+            display: inline-block;
+            padding: 5px 12px;
+            margin: 5px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .block-tag {
+            background-color: #BBDEFB;
+            color: #1565C0;
+            border: 2px solid #1565C0;
+        }
+        .inline-tag {
+            background-color: #E1BEE7;
+            color: #6A1B9A;
+            border: 2px solid #6A1B9A;
+        }
+
+        .demo-area {
+            background: #FAFAFA;
+            border: 2px dashed #CCC;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .demo-block {
+            background: #90CAF9;
+            border: 2px solid #1976D2;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            color: #0D47A1;
+            font-weight: bold;
+        }
+        .demo-inline {
+            background: #CE93D8;
+            border: 2px solid #7B1FA2;
+            padding: 5px 10px;
+            margin: 2px;
+            border-radius: 5px;
+            color: #4A148C;
+            font-weight: bold;
+        }
+
+        .rule-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #81C784;
+        }
+        .rule-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        .rule-card.ok {
+            border-color: #4CAF50;
+            background: #F1F8E9;
+        }
+        .rule-card.ok h3 { color: #2E7D32; }
+        .rule-card.no {
+            border-color: #F44336;
+            background: #FFEBEE;
+        }
+        .rule-card.no h3 { color: #C62828; }
+        .rule-card.warning {
+            border-color: #FF9800;
+            background: #FFF3E0;
+        }
+        .rule-card.warning h3 { color: #EF6C00; }
+
+        .nesting-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .nesting-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .nesting-box {
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1em;
+            position: relative;
+        }
+        .big-box {
+            background: #BBDEFB;
+            border: 3px solid #1565C0;
+            color: #0D47A1;
+            min-width: 300px;
+        }
+        .small-box {
+            background: #E1BEE7;
+            border: 2px solid #7B1FA2;
+            color: #4A148C;
+            padding: 8px 15px;
+            font-size: 0.95em;
+        }
+        .arrow {
+            font-size: 2em;
+            color: #666;
+        }
+        .ok-mark {
+            color: #4CAF50;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .no-mark {
+            color: #F44336;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .warning-mark {
+            color: #FF9800;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        code {
+            background: #263238;
+            color: #80CBC4;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, transparent 0%, #FFEB3B 0%, #FFEB3B 100%, transparent 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            padding: 0 4px;
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .summary-table th {
+            background: #FFCC80;
+            padding: 12px;
+            border: 2px solid #FF9800;
+            font-size: 1.1em;
+        }
+        .summary-table td {
+            padding: 12px;
+            border: 2px solid #FFE0B2;
+            text-align: center;
+        }
+        .summary-table tr:nth-child(even) {
+            background: #FFF8E1;
+        }
+
+        .emoji { font-size: 1.3em; }
+
+        .truth-box {
+            background: #E8F5E9;
+            border: 3px solid #4CAF50;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .truth-box h3 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .truth-box ul {
+            margin-left: 25px;
+            line-height: 2;
+            font-size: 1.1em;
+        }
+        .truth-box li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧱 HTML 블록과 인라인 🚂</h1>
+        <p class="subtitle">정확한 중첩 규칙까지 완벽하게 정리!</p>
+
+        <!-- 정정 알림 -->
+        <div class="warning-box">
+            <h3>⚠️ 정확한 정보를 위해 수정했어요!</h3>
+            <p style="font-size: 1.1em;">
+                이 문서는 MDN, W3Schools, W3C 등 공식 문서를 참고해서 만들었어요.<br>
+                특히 HTML5에서 바뀐 <code>&lt;a&gt;</code> 태그 규칙도 정확히 반영했어요!
+            </p>
+        </div>
+
+        <!-- 블록 레벨 설명 -->
+        <div class="section block-section">
+            <h2>🧱 블록 레벨 (Block Level)</h2>
+
+            <div class="analogy-box">
+                <strong>🎯 쉬운 비유:</strong> 블록 레벨은 <span class="highlight">큰 장난감 상자</span>예요!<br>
+                상자 안에는 <strong>작은 장난감(인라인)</strong>도 넣을 수 있고, <strong>또 다른 큰 상자(블록)</strong>도 넣을 수 있어요!<br>
+                하지만 이 상자는 혼자서 한 줄을 다 차지해요.
+            </div>
+
+            <h3>✨ 특징 3가지</h3>
+            <ul style="margin-left: 20px; font-size: 1.1em;">
+                <li>📏 <strong>한 줄을 다 차지해요</strong></li>
+                <li>⬇️ <strong>위아래로 쌓여요</strong></li>
+                <li>📐 <strong>크기를 마음대로 정할 수 있어요</strong></li>
+            </ul>
+
+            <h3>🏷️ 블록 태그 친구들</h3>
+            <div style="margin: 15px 0;">
+                <span class="tag-box block-tag">&lt;div&gt;</span>
+                <span class="tag-box block-tag">&lt;p&gt;</span>
+                <span class="tag-box block-tag">&lt;h1&gt;~&lt;h6&gt;</span>
+                <span class="tag-box block-tag">&lt;ul&gt;</span>
+                <span class="tag-box block-tag">&lt;ol&gt;</span>
+                <span class="tag-box block-tag">&lt;li&gt;</span>
+                <span class="tag-box block-tag">&lt;header&gt;</span>
+                <span class="tag-box block-tag">&lt;footer&gt;</span>
+                <span class="tag-box block-tag">&lt;section&gt;</span>
+                <span class="tag-box block-tag">&lt;article&gt;</span>
+                <span class="tag-box block-tag">&lt;nav&gt;</span>
+                <span class="tag-box block-tag">&lt;aside&gt;</span>
+                <span class="tag-box block-tag">&lt;main&gt;</span>
+                <span class="tag-box block-tag">&lt;form&gt;</span>
+                <span class="tag-box block-tag">&lt;table&gt;</span>
+                <span class="tag-box block-tag">&lt;blockquote&gt;</span>
+                <span class="tag-box block-tag">&lt;pre&gt;</span>
+                <span class="tag-box block-tag">&lt;hr&gt;</span>
+            </div>
+        </div>
+
+        <!-- 인라인 레벨 설명 -->
+        <div class="section inline-section">
+            <h2>🚂 인라인 레벨 (Inline Level)</h2>
+
+            <div class="analogy-box">
+                <strong>🎯 쉬운 비유:</strong> 인라인 레벨은 <span class="highlight">작은 장난감</span>이에요!<br>
+                작은 장난감은 <strong>큰 상자(블록) 안에</strong> 들어가야 해요.<br>
+                작은 장난감 안에는 <strong>더 작은 장난감(다른 인라인)</strong>만 넣을 수 있어요.
+            </div>
+
+            <h3>✨ 특징 3가지</h3>
+            <ul style="margin-left: 20px; font-size: 1.1em;">
+                <li>➡️ <strong>옆으로 나란히 배치돼요</strong></li>
+                <li>📏 <strong>자기 내용만큼만 크기를 가져요</strong></li>
+                <li>❌ <strong>너비/높이를 마음대로 못 바꿔요</strong></li>
+            </ul>
+
+            <h3>🏷️ 인라인 태그 친구들</h3>
+            <div style="margin: 15px 0;">
+                <span class="tag-box inline-tag">&lt;span&gt;</span>
+                <span class="tag-box inline-tag">&lt;a&gt;</span>
+                <span class="tag-box inline-tag">&lt;strong&gt;</span>
+                <span class="tag-box inline-tag">&lt;em&gt;</span>
+                <span class="tag-box inline-tag">&lt;img&gt;</span>
+                <span class="tag-box inline-tag">&lt;input&gt;</span>
+                <span class="tag-box inline-tag">&lt;label&gt;</span>
+                <span class="tag-box inline-tag">&lt;br&gt;</span>
+                <span class="tag-box inline-tag">&lt;code&gt;</span>
+                <span class="tag-box inline-tag">&lt;small&gt;</span>
+                <span class="tag-box inline-tag">&lt;sub&gt;</span>
+                <span class="tag-box inline-tag">&lt;sup&gt;</span>
+                <span class="tag-box inline-tag">&lt;button&gt;</span>
+                <span class="tag-box inline-tag">&lt;select&gt;</span>
+                <span class="tag-box inline-tag">&lt;textarea&gt;</span>
+                <span class="tag-box inline-tag">&lt;mark&gt;</span>
+                <span class="tag-box inline-tag">&lt;del&gt;</span>
+                <span class="tag-box inline-tag">&lt;ins&gt;</span>
+                <span class="tag-box inline-tag">&lt;b&gt;</span>
+                <span class="tag-box inline-tag">&lt;i&gt;</span>
+                <span class="tag-box inline-tag">&lt;u&gt;</span>
+            </div>
+        </div>
+
+        <!-- 중첩 규칙 - 정확한 버전 -->
+        <div class="section nesting-section">
+            <h2>🎁 중첩 규칙: 안에 뭘 넣을 수 있을까?</h2>
+
+            <div class="analogy-box">
+                <strong>🎯 장난감 상자 생각해보기:</strong><br>
+                큰 상자(블록) 안에는 <strong>작은 장난감(인라인)</strong>도 넣을 수 있고, <strong>또 다른 큰 상자(블록)</strong>도 넣을 수 있어요.<br>
+                하지만 <strong>작은 장난감(인라인) 안에는 큰 상자(블록)를 넣을 수 없어요!</strong><br>
+                "어? 안 들어가!" 하고 망가지니까요! 😱
+            </div>
+
+            <!-- 규칙 1: 블록 안에 인라인 -->
+            <div class="rule-card ok">
+                <h3>✅ 규칙 1: 블록 안에 인라인 넣기 → 가능!</h3>
+                <p style="margin-bottom: 10px;">큰 상자(블록) 안에 작은 장난감(인라인)을 넣는 건 자연스러워요!</p>
+
+                <div class="nesting-visual">
+                    <div class="nesting-row">
+                        <div class="nesting-box big-box">
+                            🧱 &lt;div&gt; 큰 상자
+                            <div style="margin-top: 10px;">
+                                <span class="nesting-box small-box">🚂 &lt;span&gt; 작은 장난감</span>
+                                <span class="nesting-box small-box">🚂 &lt;strong&gt; 굵은 글자</span>
+                            </div>
+                        </div>
+                        <span class="arrow">→</span>
+                        <span class="ok-mark">✅</span>
+                    </div>
+                </div>
+
+                <p><strong>코드 예시:</strong></p>
+                <code>&lt;div&gt;안녕! 여기 안에 &lt;strong&gt;굵은 글자&lt;/strong&gt;가 있어요.&lt;/div&gt;</code>
+            </div>
+
+            <!-- 규칙 2: 블록 안에 블록 -->
+            <div class="rule-card ok">
+                <h3>✅ 규칙 2: 블록 안에 블록 넣기 → 가능!</h3>
+                <p style="margin-bottom: 10px;">큰 상자 안에 또 다른 큰 상자를 넣을 수도 있어요!</p>
+
+                <div class="nesting-visual">
+                    <div class="nesting-row">
+                        <div class="nesting-box big-box">
+                            🧱 &lt;div&gt; 큰 상자
+                            <div style="margin-top: 10px; padding: 10px; background: #90CAF9; border-radius: 8px;">
+                                🧱 &lt;p&gt; 작은 상자 (문단)
+                                <div style="margin-top: 8px;">
+                                    <span class="nesting-box small-box">🚂 &lt;span&gt; 글자</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="arrow">→</span>
+                        <span class="ok-mark">✅</span>
+                    </div>
+                </div>
+
+                <p><strong>코드 예시:</strong></p>
+                <code>&lt;div&gt;&lt;p&gt;이건 &lt;span&gt;문단&lt;/span&gt;이에요&lt;/p&gt;&lt;/div&gt;</code>
+            </div>
+
+            <!-- 규칙 3: 인라인 안에 인라인 -->
+            <div class="rule-card ok">
+                <h3>✅ 규칙 3: 인라인 안에 인라인 넣기 → 가능!</h3>
+                <p style="margin-bottom: 10px;">작은 장난감 안에 더 작은 장난감을 넣을 수 있어요!</p>
+
+                <div class="nesting-visual">
+                    <div class="nesting-row">
+                        <div class="nesting-box small-box">
+                            🚂 &lt;a&gt; 링크 안에
+                            <span class="nesting-box" style="background: #C8E6C9; border-color: #388E3C; color: #1B5E20; padding: 5px 10px; margin-left: 5px;">
+                                🚂 &lt;strong&gt; 굵은 글자
+                            </span>
+                        </div>
+                        <span class="arrow">→</span>
+                        <span class="ok-mark">✅</span>
+                    </div>
+                </div>
+
+                <p><strong>코드 예시:</strong></p>
+                <code>&lt;a href="#"&gt;여기를 &lt;strong&gt;클릭&lt;/strong&gt;하세요&lt;/a&gt;</code>
+            </div>
+
+            <!-- 규칙 4: 인라인 안에 블록 -->
+            <div class="rule-card no">
+                <h3>❌ 규칙 4: 인라인 안에 블록 넣기 → 원칙적으로 불가능!</h3>
+                <p style="margin-bottom: 10px;">작은 장난감 안에 큰 상자를 넣으면... 망가져요! HTML이 아파요 😢</p>
+
+                <div class="nesting-visual">
+                    <div class="nesting-row">
+                        <div class="nesting-box small-box" style="position: relative; overflow: visible;">
+                            🚂 &lt;span&gt; 작은 상자
+                            <div style="position: absolute; top: 100%; left: 0; margin-top: 5px; background: #FFCDD2; border: 2px dashed #F44336; padding: 10px; border-radius: 8px; white-space: nowrap;">
+                                🧱 &lt;div&gt; 큰 상자 (들어가려고 함)
+                            </div>
+                        </div>
+                        <span class="arrow">→</span>
+                        <span class="no-mark">❌</span>
+                    </div>
+                </div>
+
+                <p><strong>코드 예시:</strong></p>
+                <code style="background: #FFEBEE; color: #C62828;">&lt;span&gt;안 돼요! &lt;div&gt;이건 안 돼요&lt;/div&gt;&lt;/span&gt; ❌</code>
+            </div>
+
+            <!-- 특별 규칙: a 태그 -->
+            <div class="rule-card warning">
+                <h3>⚠️ 특별 규칙: &lt;a&gt; 태그는 예외예요!</h3>
+                <p style="margin-bottom: 15px;">
+                    HTML5부터 <code>&lt;a&gt;</code> 태그는 <strong>"투명(transparent)"</strong>이라서<br>
+                    부모가 블록이면 블록을, 부모가 인라인이면 인라인만 넣을 수 있어요!<br>
+                    <span style="color: #666; font-size: 0.9em;">(하지만 웹접근성과 SEO를 위해 권장하지는 않아요)</span>
+                </p>
+
+                <div class="nesting-visual">
+                    <div class="nesting-row">
+                        <div class="nesting-box big-box">
+                            🧱 &lt;div&gt; (부모가 블록)
+                            <div style="margin-top: 10px; padding: 10px; background: #FFE0B2; border-radius: 8px;">
+                                🔗 &lt;a&gt; 링크 안에<br>
+                                <span style="display: block; margin-top: 5px; padding: 5px; background: #90CAF9; border-radius: 5px;">
+                                    🧱 &lt;div&gt; 블록 가능!
+                                </span>
+                            </div>
+                        </div>
+                        <span class="arrow">→</span>
+                        <span class="warning-mark">⚠️</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 10px;"><strong>코드 예시:</strong></p>
+                <code>&lt;div&gt;&lt;a href="#"&gt;&lt;div&gt;이건 HTML5에서 가능해요&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;</code>
+                <p style="margin-top: 10px; color: #EF6C00;">
+                    💡 하지만 <code>&lt;a&gt;</code> 안에 또 다른 <code>&lt;a&gt;</code>는 절대 안 돼요!
+                </p>
+            </div>
+
+            <!-- 예외 상황 -->
+            <div class="rule-card" style="border-color: #FF9800; background: #FFF3E0;">
+                <h3 style="color: #EF6C00;">🤔 더 정확한 예외들</h3>
+                <ul style="margin-left: 20px; margin-top: 10px; line-height: 2;">
+                    <li><code>&lt;p&gt;</code> (문단) 안에는 <strong>블록 태그를 넣을 수 없어요</strong> → 문단 안에 문단은 안 돼요!</li>
+                    <li><code>&lt;h1&gt;~&lt;h6&gt;</code> 안에도 <strong>블록 태그를 넣을 수 없어요</strong> → 제목 안에는 글자만!</li>
+                    <li><code>&lt;button&gt;</code> 안에는 또 다른 <code>&lt;button&gt;</code>이나 <code>&lt;a&gt;</code>를 넣을 수 없어요</li>
+                    <li><code>&lt;a&gt;</code> 안에 또 다른 <code>&lt;a&gt;</code>는 <strong>절대 안 돼요</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 정확한 진실 -->
+        <div class="truth-box">
+            <h3>📚 정확한 진실 (MDN, W3Schools, W3C 기준)</h3>
+            <ul>
+                <li><strong>블록 안에 인라인:</strong> ✅ 항상 가능해요</li>
+                <li><strong>블록 안에 블록:</strong> ✅ 대부분 가능 (단, <code>&lt;p&gt;</code> 안에는 블록 불가)</li>
+                <li><strong>인라인 안에 인라인:</strong> ✅ 가능해요</li>
+                <li><strong>인라인 안에 블록:</strong> ❌ 원칙적으로 불가능 (단, <code>&lt;a&gt;</code>는 HTML5부터 예외)</li>
+                <li><strong><code>&lt;a&gt;</code> 안에 블록:</strong> ⚠️ HTML5부터 가능하지만, 권장하지는 않아요</li>
+            </ul>
+        </div>
+
+        <!-- 한눈에 비교표 -->
+        <div class="section" style="background: #E3F2FD; border: 3px solid #2196F3;">
+            <h2 style="color: #1565C0;">📊 한눈에 정리표</h2>
+            <table class="summary-table">
+                <tr>
+                    <th style="width: 20%;">비교 항목</th>
+                    <th style="width: 40%; background: #BBDEFB;">🧱 블록 레벨</th>
+                    <th style="width: 40%; background: #E1BEE7;">🚂 인라인 레벨</th>
+                </tr>
+                <tr>
+                    <td><strong>줄 차지</strong></td>
+                    <td>한 줄을 다 차지해요<br><span class="emoji">🧍‍♂️</span></td>
+                    <td>내용만큼만 차지해요<br><span class="emoji">👫</span></td>
+                </tr>
+                <tr>
+                    <td><strong>배치 방향</strong></td>
+                    <td>위아래로 쌓여요 (세로)<br><span class="emoji">⬇️</span></td>
+                    <td>옆으로 나란히 (가로)<br><span class="emoji">➡️</span></td>
+                </tr>
+                <tr>
+                    <td><strong>크기 조절</strong></td>
+                    <td>너비/높이 마음대로!<br><span class="emoji">✅</span></td>
+                    <td>크기 조절이 안 돼요<br><span class="emoji">❌</span></td>
+                </tr>
+                <tr>
+                    <td><strong>안에 블록 넣기</strong></td>
+                    <td>⭕ 가능 (대부분)</td>
+                    <td>❌ 불가능 (<code>&lt;a&gt;</code>는 예외)</td>
+                </tr>
+                <tr>
+                    <td><strong>안에 인라인 넣기</strong></td>
+                    <td>⭕ 가능</td>
+                    <td>⭕ 가능</td>
+                </tr>
+                <tr>
+                    <td><strong>비유</strong></td>
+                    <td>큰 장난감 상자<br><span class="emoji">📦</span></td>
+                    <td>작은 장난감<br><span class="emoji">🧸</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 꿀팁 -->
+        <div class="section" style="background: #FFF3E0; border: 3px solid #FF9800;">
+            <h2 style="color: #EF6C00;">💡 개발자 선생님의 꿀팁!</h2>
+            <ul style="margin-left: 20px; font-size: 1.1em; line-height: 2;">
+                <li>CSS로 <code>display: inline-block;</code>을 주면 인라인처럼 옆으로 붙으면서도 크기 조절이 가능해요!</li>
+                <li>CSS로 <code>display: block;</code>을 주면 인라인 태그도 블록처럼 행동해요!</li>
+                <li>CSS로 <code>display: inline;</code>을 주면 블록 태그도 인라인처럼 행동해요!</li>
+                <li>하지만 HTML 구조상의 규칙(중첩 규칙)은 CSS로 바꿀 수 없어요!</li>
+                <li><code>&lt;a&gt;</code> 안에 블록을 넣을 수는 있지만, 웹접근성과 SEO를 위해 신중하게 사용하세요!</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; color: #888; font-size: 0.9em;">
+            <p>🎉 이제 정확한 HTML 블록과 인라인의 차이를 다 알았어요! 최고예요! 🎉</p>
+            <p style="margin-top: 10px;">참고: MDN Web Docs, W3Schools, W3C HTML5 Specification</p>
+        </div>
+    </div>
+</body>
+</html>

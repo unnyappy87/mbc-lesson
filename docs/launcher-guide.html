@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini CLI 윈도우 런처 사용 설명서</title>
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --success-color: #34a853;
+            --warning-color: #fbbc05;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #3c4043;
+            --code-bg: #f1f3f4;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .file-location {
+            background-color: #e8f0fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .method {
+            margin-bottom: 40px;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .method h2 {
+            margin-top: 0;
+            color: var(--success-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .method h2::before {
+            content: '✓';
+            margin-right: 10px;
+            background: var(--success-color);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #d93025;
+        }
+
+        .tip {
+            background-color: #fff4e5;
+            border-left: 5px solid var(--warning-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .path-display {
+            display: block;
+            word-break: break-all;
+            background: #eee;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gemini CLI 런처 사용법</h1>
+        
+        <div class="file-location">
+            파일 위치: <code class="path-display">C:\Users\PC\Desktop\beep\web\html\</code>
+        </div>
+
+        <section class="method">
+            <h2>방법 1: 우클릭 메뉴에 추가 (강력 추천)</h2>
+            <p>폴더를 오른쪽 클릭하기만 하면 해당 위치에서 제미나이가 실행됩니다.</p>
+            <ol>
+                <li>위 폴더에서 <code>add_context_menu.reg</code> 파일을 찾습니다.</li>
+                <li>파일을 <strong>더블 클릭</strong>하여 실행합니다.</li>
+                <li>"레지스트리 편집기" 경고창이 뜨면 <strong>[예]</strong>를 클릭합니다.</li>
+                <li>설정이 완료되었습니다! 이제 아무 폴더에서나 바탕화면 빈 곳을 <strong>마우스 우클릭</strong>하면 <code>Open Gemini CLI here</code> 메뉴가 보입니다.</li>
+            </ol>
+        </section>
+
+        <section class="method">
+            <h2>방법 2: 배치 파일로 직접 실행</h2>
+            <p>특정 위치에 파일을 두고 더블 클릭하여 실행하는 방식입니다.</p>
+            <ol>
+                <li><code>gemini_launcher.bat</code> 파일을 제미나이를 실행하고 싶은 폴더로 복사합니다.</li>
+                <li>복사한 파일을 <strong>더블 클릭</strong>합니다.</li>
+                <li>검은색 창(명령 프롬프트)이 뜨면서 제미나이 CLI가 시작됩니다.</li>
+            </ol>
+        </section>
+
+        <div class="tip">
+            <strong>💡 팁:</strong> <br>
+            파일이 보이지 않는다면 윈도우 탐색기의 주소창에 <code>C:\Users\PC\Desktop\beep\web\html</code> 를 복사해서 붙여넣고 엔터를 치시면 바로 이동할 수 있습니다.
+        </div>
+
+        <p style="text-align: center; color: #70757a; margin-top: 40px; font-size: 0.8em;">
+            © 2026 Gemini CLI Helper
+        </p>
+    </div>
+</body>
+</html>

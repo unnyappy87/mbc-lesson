@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFEIN Banner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@500&family=Train+One&family=Unna:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .banner {
+            width: 1500px;
+            height: 500px;
+            background-color: rgba(164, 124, 67, 0.51);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+
+        /* Decoration Boxes */
+        .decoration-frame {
+            position: absolute;
+            inset: 40px;
+            pointer-events: none;
+        }
+
+        .left-box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 343px;
+            height: 420px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        .right-box {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 343px;
+            height: 420px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        .left-box img, .right-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .top-line {
+            position: absolute;
+            left: 343px;
+            right: 343px;
+            top: 0;
+            height: 314px;
+            border: 1px solid black;
+            border-left: none;
+            border-right: none;
+        }
+
+        /* Center Content Container */
+        .center-container {
+            position: absolute;
+            left: 383px; /* 40px margin + 343px left box */
+            right: 383px; /* 40px margin + 343px right box */
+            top: 40px;
+            height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .text-group {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+            padding-top: 40px;
+        }
+
+        .title {
+            font-family: 'Train One', cursive;
+            font-size: 88px;
+            line-height: 1.2;
+            margin: 0;
+            letter-spacing: 0.88px;
+        }
+
+        .subtitle {
+            font-family: 'Unna', serif;
+            font-size: 48px;
+            line-height: 1.3;
+            margin: 0;
+            letter-spacing: 0.48px;
+        }
+
+        /* Black Event Box */
+        .bottom-black-box {
+            width: 100%;
+            height: 107px;
+            background-color: black;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: auto; /* Push to bottom of center-container */
+        }
+
+        .event-text {
+            font-family: 'Georama', sans-serif;
+            font-weight: 500;
+            font-size: 36px;
+            color: white;
+            letter-spacing: -1.08px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <!-- Background Decorations -->
+        <div class="decoration-frame">
+            <div class="left-box">
+                <img src="https://www.figma.com/api/mcp/asset/5be6f5d3-72a0-46e0-831e-8007ec2b8d4c" alt="Left Box">
+            </div>
+            <div class="right-box">
+                <img src="https://www.figma.com/api/mcp/asset/f2ff693c-ff33-479d-81f8-84dafd019969" alt="Right Box">
+            </div>
+            <div class="top-line"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="center-container">
+            <div class="text-group">
+                <p class="title">CAFEIN</p>
+                <p class="subtitle">도시의 향을 담은 깊은 맛</p>
+                <p class="subtitle">Deep Flavors, Urban Aroma.</p>
+            </div>
+            
+            <div class="bottom-black-box">
+                <p class="event-text">오픈기념 아아 1000원</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

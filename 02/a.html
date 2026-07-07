@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신한카드 디지털 UX/UI 리뉴얼 - 데스크톱 웹 홈</title>
+    <!-- Tailwind CSS 및 Pretendard 폰트 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <style>
+        body { 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; 
+            background-color: #F8FAFC;
+        }
+        /* 스크롤바 디자인을 슬림하게 조정하여 시각적 노이즈 제거 */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    </style>
+</head>
+<body class="text-slate-900 antialiased min-h-screen flex flex-col">
+
+    <!-- [1] 상단 고정 네비게이션 바 (GNB) -->
+    <header class="w-full bg-white border-b border-slate-200/80 sticky top-0 z-50 backdrop-blur-md bg-white/90">
+        <div class="max-w-7xl mx-auto h-20 px-6 flex justify-between items-center">
+            
+            <!-- 브랜드 로고 및 메인 메뉴 항목 -->
+            <div class="flex items-center space-x-12">
+                <div class="text-[#0046FF] font-black text-2xl tracking-tight cursor-pointer">Shinhan Card</div>
+                <nav class="hidden md:flex space-x-8 text-[15px] font-bold text-slate-400">
+                    <a href="#" class="text-slate-950 border-b-2 border-slate-950 pb-7 pt-7">마이카드</a>
+                    <a href="#" class="hover:text-slate-600 pb-7 pt-7 transition-colors">추천혜택</a>
+                    <a href="#" class="hover:text-slate-600 pb-7 pt-7 transition-colors">금융/서비스</a>
+                    <a href="#" class="hover:text-slate-600 pb-7 pt-7 transition-colors">자산관리</a>
+                    <a href="#" class="hover:text-slate-600 pb-7 pt-7 transition-colors">고객센터</a>
+                </nav>
+            </div>
+
+            <!-- 우측 범용 메뉴 및 로그인 버튼 -->
+            <div class="flex items-center space-x-6 text-slate-600 font-medium text-sm">
+                <button class="hover:text-slate-900 flex items-center space-x-1">
+                    <span>🔍</span> <span class="hidden lg:inline">검색</span>
+                </button>
+                <button class="hover:text-slate-900 relative">
+                    <span>🔔</span>
+                    <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                </button>
+                <div class="h-4 w-[1px] bg-slate-200"></div>
+                <button class="bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2 rounded-lg font-bold transition-colors">
+                    로그인
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- [2] 히어로 섹션 (개인화 메시지 영역) -->
+    <section class="w-full bg-white border-b border-slate-100 py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl space-y-3">
+                <div class="inline-flex items-center space-x-2 bg-blue-50 text-[#0046FF] text-xs font-bold px-3 py-1.5 rounded-md">
+                    <span>✨</span> <span>마이데이터 소비 패턴 기반 분석</span>
+                </div>
+                <h1 class="text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    김신한 고객님을 위한 <br class="sm:hidden">
+                    <span class="text-[#0046FF]">이달의 맞춤 혜택 라인업</span>
+                </h1>
+                <p class="text-slate-400 text-base font-medium pt-1">
+                    복잡한 조건 없이 고객님이 주로 방문하시는 가맹점의 핵심 피드만 깔끔하게 요약했습니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- [3] 2분할 웹 레이아웃 메인 바디 -->
+    <div class="flex-1 max-w-7xl w-full mx-auto px-6 py-10 flex flex-col md:flex-row gap-8">
+        
+        <!-- 좌측 영역: 카테고리 내비게이션 필터 -->
+        <aside class="w-full md:w-64 flex-shrink-0 space-y-6">
+            <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-[0_2px_12px_rgba(0,0,0,0.01)]">
+                <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">혜택 카테고리</h2>
+                <ul class="space-y-1">
+                    <li>
+                        <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-xl bg-[#0046FF]/5 text-[#0046FF] font-bold text-[14px]">
+                            <span>전체 보기</span>
+                            <span class="text-xs bg-[#0046FF] text-white px-2 py-0.5 rounded-md font-semibold">6</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-[14px] transition-colors">
+                            <span class="flex items-center space-x-2"><span>☕</span> <span>푸드/커피</span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-[14px] transition-colors">
+                            <span class="flex items-center space-x-2"><span>🎬</span> <span>디지털/콘텐츠</span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-[14px] transition-colors">
+                            <span class="flex items-center space-x-2"><span>🚌</span> <span>교통/모빌리티</span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-[14px] transition-colors">
+                            <span class="flex items-center space-x-2"><span>🛍️</span> <span>쇼핑/멤버십</span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 이지(Easy) 케어 모드 전환 컴포넌트 -->
+            <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-md relative overflow-hidden group">
+                <div class="relative z-10 space-y-2">
+                    <p class="text-xs font-bold text-slate-400">도움이 필요하신가요?</p>
+                    <p class="text-base font-bold leading-snug">큰글씨 모드 및 AI 상담이 대기 중입니다.</p>
+                    <button class="mt-2 text-xs font-bold text-[#0046FF] bg-white px-3 py-1.5 rounded-lg hover:bg-slate-50 transition-colors">
+                        이지 모드 켜기
+                    </button>
+                </div>
+                <div class="absolute -right-4 -bottom-4 text-6xl opacity-10 font-bold select-none group-hover:scale-110 transition-transform">?</div>
+            </div>
+        </aside>
+
+        <!-- 우측 영역: 대화면 최적화 3열 인포그래픽 카드 그리드 -->
+        <main class="flex-1 space-y-6">
+            
+            <div class="flex justify-between items-center pb-2">
+                <p class="text-sm font-bold text-slate-400">추천 순 <span class="text-slate-900 font-extrabold">3개</span></p>
+                <div class="flex items-center space-x-2 text-xs font-semibold text-slate-500">
+                    <button class="text-slate-900 border-b border-slate-900">기본 격자형</button>
+                    <span class="text-slate-300">|</span>
+                    <button class="hover:text-slate-900">리스트형 보기</button>
+                </div>
+            </div>
+
+            <!-- 인포그래픽 카드 리스트 레이아웃 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 카드 1: 커피 영역 혜택 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:translate-y-[-4px] hover:shadow-[0_12px_24px_rgba(0,0,0,0.05)] transition-all duration-300 group">
+                    <div>
+                        <div class="flex justify-between items-center mb-5">
+                            <div class="flex items-center space-x-2.5">
+                                <span class="text-2xl bg-slate-50 p-2 rounded-xl group-hover:bg-blue-50 transition-colors">☕</span>
+                                <span class="text-xs font-bold text-slate-400">푸드/커피</span>
+                            </div>
+                            <span class="bg-slate-100 text-slate-600 text-[11px] font-extrabold px-3 py-1 rounded-full">전월 40만↑</span>
+                        </div>
+                        <div class="space-y-1.5 mb-6">
+                            <p class="text-[14px] font-bold text-slate-600">스타벅스 · 커피빈 · 투썸플레이스</p>
+                            <p class="text-2xl font-black text-[#0046FF] tracking-tight">10% 결제일 할인</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <ul class="text-xs text-slate-400 space-y-1 font-medium">
+                            <li class="flex items-start">
+                                <span class="mr-1.5 text-slate-300">•</span>
+                                <span>월 최대 1만 원 한도 내 제공</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-1.5 text-slate-300">•</span>
+                                <span>건당 1만 원 이상 결제 건까지 적용</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 카드 2: 구독 서비스 혜택 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:translate-y-[-4px] hover:shadow-[0_12px_24px_rgba(0,0,0,0.05)] transition-all duration-300 group">
+                    <div>
+                        <div class="flex justify-between items-center mb-5">
+                            <div class="flex items-center space-x-2.5">
+                                <span class="text-2xl bg-slate-50 p-2 rounded-xl group-hover:bg-blue-50 transition-colors">🎬</span>
+                                <span class="text-xs font-bold text-slate-400">디지털/콘텐츠</span>
+                            </div>
+                            <span class="bg-slate-100 text-slate-600 text-[11px] font-extrabold px-3 py-1 rounded-full">전월 40만↑</span>
+                        </div>
+                        <div class="space-y-1.5 mb-6">
+                            <p class="text-[14px] font-bold text-slate-600">넷플릭스 · 유튜브 프리미엄 · 디즈니+</p>
+                            <p class="text-2xl font-black text-[#0046FF] tracking-tight">50% 결제일 할인</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <ul class="text-xs text-slate-400 space-y-1 font-medium">
+                            <li class="flex items-start">
+                                <span class="mr-1.5 text-slate-300">•</span>
+                                <span>월 최대 1만 원 한도 내 제공</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-1.5 text-slate-300">•</span>
+                                <span>공식 홈페이지 정기결제 이용 건에 한함</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 카드 3: 모빌리티 혜택 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:translate-y-[-4px] hover:shadow-[0_12px_24px_rgba(0,0,0,0.05)] transition-all duration-300 group">
+                    <div>
+                        <div class="flex justify-between items-center mb-5">
+                            <div class="flex items-center space-x-2.5">
+                                <span class="text-2xl bg-slate-50 p-2 rounded-xl group-hover:bg-blue-50 transition-colors">🚌</span>
+                                <span class="text-xs font-bold text-slate-400">교통/모빌리티</span>
+                            </div>
+                            <span class="bg-blue-50 text-[#0046FF] text-[11px] font-extrabold px-3 py-1 rounded-full">조건없음</span>
+                        </div>
+                        <div class="space-y-1.5 mb-6">
+                            <p class="text-[14px] font-bold text-slate-600">전국 시내버스 · 지하철 · 택시</p>
+                            <p class="text-2xl font-black text-[#0046FF] tracking-tight">5% 적립 <span class="text-xs font-bold text-slate-400">(신한포인트)</span></p>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <ul class="text-xs text-slate-400 space-y-1 font-medium">
+                            <li class="flex items-start">
+                                <span class="mr-1.5 text-slate-300">•</span>
+                                <span>후불교통카드 기능 이용 시 자동 반영</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-1.5 text-slate-300">•</span>
+                                <span>월 최대 5천 포인트 적립 한도 적용</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 미니멀 마케팅 배너 컴포넌트 -->
+            <div class="w-full bg-blue-50 border border-blue-100 rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-8">
+                <div class="space-y-1">
+                    <p class="text-xs font-bold text-[#0046FF]">NOW 이벤트를 확인하세요</p>
+                    <p class="text-base font-bold text-slate-800">새해 맞이 신한 모빌리티 카드 신규 발급 시 연회비 100% 캐시백</p>
+                </div>
+                <button class="bg-[#0046FF] hover:bg-blue-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-colors whitespace-nowrap">
+                    지금 이벤트 응모하기
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- [4] 깔끔하게 하단 정렬된 웹 푸터 -->
+    <footer class="w-full bg-slate-100 border-t border-slate-200 mt-20">
+        <div class="max-w-7xl mx-auto px-6 py-10 text-xs text-slate-400 font-medium space-y-6">
+            <div class="flex flex-wrap gap-x-8 gap-y-2 text-slate-600 font-bold">
+                <a href="#" class="hover:text-slate-900">이용약관</a>
+                <a href="#" class="hover:text-slate-900 text-slate-900 font-extrabold">개인정보처리방침</a>
+                <a href="#" class="hover:text-slate-900">고객권리안내문</a>
+                <a href="#" class="hover:text-slate-900">ARS 안내</a>
+            </div>
+            <div class="space-y-1 leading-relaxed">
+                <p>서울특별시 중구 을지로 100 ㈜신한카드 대표이사 문동권 | 사업자등록번호 201-81-86283</p>
+                <p>© SHINHAN CARD CO., LTD. ALL RIGHTS RESERVED. 준법감시인 심의필 제 20260605-Ord-001호</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

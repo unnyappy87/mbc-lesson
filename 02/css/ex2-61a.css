@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* 
+Position
+기능 : 요소를 좌표로 위치시키는 속성
+속성값 : static, relative, absolute, fixedm sticky
+좌표값: top,right,bottom,left
+깊이값(우선순위):z-index
+ z-indexs는 Position이 선언되야 사용가능
+ 기본값 0
+ static;은 무용지물
+*/
+.child:nth-child(1) {
+  /* soatic:position을 넣기전에  기본값*/
+  position: static;
+  /* relative :  */
+  position: relative;
+  top: 50px;
+  left: 150px;
+  z-index: 0;
+}
+.child:nth-child(2) {
+  position: relative;
+  top: -100px;
+  z-index: 2;
+}
+.child:nth-child(3) {
+  position: relative;
+  top: -150px;
+  z-index: 6;
+}
