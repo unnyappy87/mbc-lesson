@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>자바스크립트 이벤트</title>
+		<link rel="stylesheet" href="css/function.css" />
+	</head>
+	<body>
+		<ul>
+			<li>
+				<a href="#" onclick="changeBg('green')">Green</a>
+				<a class="b1" href="#">그린</a>
+			</li>
+			<li>
+				<a  href="#" onclick="changeBg('orange')">Orange</a>
+				<a class="b2"  href="#" >오렌지</a>
+			</li>
+			<li>
+				<a href="#" onclick="changeBg('purple')">Purple</a>
+				<a class="b3" href="#" >보라</a>
+			</li>
+		</ul>
+		<div id="result"></div>
+		<script>
+            //조작할 html요소를 자바스크립트 객체화
+            const b1 = document.querySelector('.b1');
+            b1.addEventListener('click', (e) => changeBg('yellowgreen'))
+            const b2 = document.querySelector('.b2');
+            b2.addEventListener('click',(e) => changeBg('red'))
+            const b3 = document.querySelector('.b3');
+            b3.addEventListener('click',(e) => changeBg('skyblue'))
+			function changeBg(a){
+                const box = document.querySelector('#result');
+                box.style.background = a;
+            }
+		</script>
+	</body>
+</html>
